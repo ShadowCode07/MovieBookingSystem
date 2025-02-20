@@ -1,0 +1,65 @@
+# Build & output files
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.vspscc
+*.vssscc
+
+# User-specific settings & IDE files
+.vscode/
+.idea/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core configuration files (secrets should not be committed)
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Entity Framework Migrations (optional, can be versioned if needed)
+Migrations/
+
+# Logs and runtime files
+logs/
+*.log
+*.nlog
+*.tlog
+*.env
+
+# NuGet & dependency management
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.assets.json
+
+# Docker-related files
+docker-compose.override.yml
+**/Dockerfile
+**/docker-compose*.yml
+
+# Rider / ReSharper
+*.DotSettings
+.idea/
+*.sln.iml
+
+# OS-specific files
+.DS_Store
+*.swp
+*.swo
+
+# Test coverage & reports (if using Coverlet or similar tools)
+coverage/
+TestResults/
+*.trx
+*.coverage
+*.cov
