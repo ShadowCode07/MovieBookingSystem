@@ -26,8 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="src\UserServices.Domain\Aggregates\" />
+    <Folder Include="src\UserServices.Domain\Events\" />
     <Folder Include="src\UserServices.Infrastructure\" />
-    <Folder Include="src\UserServices.Domain\" />
     <Folder Include="src\UserServices.Application\" />
   </ItemGroup>
 
