@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using allias = MovieService.src.MovieService.Application.Services;
+using MovieService.src.MovieService.Application.Services.Abstraction;
 using MovieService.src.MovieService.Infrastructure.Data;
 using MovieService.src.MovieService.Infrastructure.Repositores;
 using MovieService.src.MovieService.Infrastructure.Repositores.Abstraction;
@@ -10,6 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("InMem"));
 
 builder.Services.AddScoped<IMovieRepositroy, MovieRepository>();
+builder.Services.AddScoped<IMovieService,  allias.MovieService>();
 
 builder.Services.AddControllers();
 
@@ -20,7 +23,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
