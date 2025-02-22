@@ -23,6 +23,18 @@ namespace UserService.src.UserServices.Infrastructure.Data.Repositories
             await _userManager.AddToRoleAsync(user, "User");
         }
 
+        public async Task<IdentityResult> CreateAsync(User user, string password)
+        {
+            var result = await _userManager.CreateAsync(user, password);
+
+            if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(user, "User");
+            }
+
+            return result;
+        }
+
         public async Task DeleteByIdAsync(Guid id)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());

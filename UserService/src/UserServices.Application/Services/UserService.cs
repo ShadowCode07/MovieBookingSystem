@@ -20,7 +20,13 @@ namespace UserService.src.UserServices.Application.Services
         public async Task CreateAsync(RegisterUserDto registerUserDto)
         {
             var user = _mapper.Map<User>(registerUserDto);
-            await _userRepository.CreateAsync(user);
+
+            if (string.IsNullOrWhiteSpace(registerUserDto.Password))
+            {
+                throw new ArgumentNullException(nameof(registerUserDto.Password), "Password cannot be null or empty.");
+            }
+
+            var result = await _userRepository.CreateAsync(user, registerUserDto.Password);
         }
 
         public async Task DeleteAsync(Guid id)
