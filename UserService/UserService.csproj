@@ -9,6 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="src\UserServices.Domain\Aggregates\**" />
+    <Compile Remove="src\UserServices.Domain\Events\**" />
+    <Content Remove="src\UserServices.Domain\Aggregates\**" />
+    <Content Remove="src\UserServices.Domain\Events\**" />
+    <EmbeddedResource Remove="src\UserServices.Domain\Aggregates\**" />
+    <EmbeddedResource Remove="src\UserServices.Domain\Events\**" />
+    <None Remove="src\UserServices.Domain\Aggregates\**" />
+    <None Remove="src\UserServices.Domain\Events\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\UserServices.Domain\Entities\js2baazp.d25~" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="FluentValidation" Version="11.11.0" />
@@ -25,13 +40,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
     <PackageReference Include="Scrutor" Version="6.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="src\UserServices.Domain\Aggregates\" />
-    <Folder Include="src\UserServices.Domain\Events\" />
-    <Folder Include="src\UserServices.Infrastructure\" />
-    <Folder Include="src\UserServices.Application\" />
   </ItemGroup>
 
 </Project>

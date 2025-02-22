@@ -1,15 +1,27 @@
+using Microsoft.EntityFrameworkCore;
+using allias = UserService.src.UserServices.Application.Services;
+using UserService.src.UserServices.Application.Services.Abstraction;
+using UserService.src.UserServices.Infrastructure.Data;
+using UserService.src.UserServices.Infrastructure.Data.Repositories;
+using UserService.src.UserServices.Infrastructure.Data.Repositories.Abstarction;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseInMemoryDatabase("InMem"));
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, allias.UserService>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -23,3 +35,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
